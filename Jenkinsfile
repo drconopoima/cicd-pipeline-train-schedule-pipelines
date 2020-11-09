@@ -11,7 +11,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md', fingerprint: 'true'
+            archiveArtifacts artifacts: 'dist/trainSchedule.zip', fingerprint: 'true'
         }
     }
 }
