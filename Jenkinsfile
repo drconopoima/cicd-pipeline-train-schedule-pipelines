@@ -4,6 +4,7 @@ pipeline {
         stage("build") {
             steps {
                 script {
+                    echo 'Running build automation'
                     sh './gradlew build --no-daemon'
                 }
             }
@@ -11,7 +12,10 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'dist/trainSchedule.zip', fingerprint: 'true'
+            script {
+                echo 'Archiving build artifacts'
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip', fingerprint: 'true'
+            }
         }
     }
 }
